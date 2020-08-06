@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>测试latex的 | Hexo</title>
+  <title>Hexo左侧显示网易云音乐栏 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="$x+y&#x3D;1$">
+  <meta name="description" content="x+y&#x3D;\frac{2}{3}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试latex的">
-<meta property="og:url" content="http://yoursite.com/2020/08/06/%E6%B5%8B%E8%AF%95latex%E7%9A%84/index.html">
+<meta property="og:title" content="Hexo左侧显示网易云音乐栏">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/Hexo%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%A0%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="$x+y&#x3D;1$">
+<meta property="og:description" content="x+y&#x3D;\frac{2}{3}">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-06T06:35:01.000Z">
-<meta property="article:modified_time" content="2020-08-06T06:36:17.686Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200806104611286.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200806105118792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2p6aXdqeGpk,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200806105312215.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200806105417348.png">
+<meta property="article:published_time" content="2020-08-06T06:56:32.000Z">
+<meta property="article:modified_time" content="2020-08-06T07:07:05.638Z">
 <meta property="article:author" content="issues">
+<meta property="article:tag" content="hexo配置">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200806104611286.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -164,27 +170,57 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-测试latex的" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Hexo左侧显示网易云音乐栏" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      测试latex的
+      Hexo左侧显示网易云音乐栏
     </h1>
   
 
         
-        <a href="/2020/08/06/%E6%B5%8B%E8%AF%95latex%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2020-08-06T06:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
+        <a href="/2020/08/06/Hexo%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%A0%8F/" class="archive-article-date">
+  	<time datetime="2020-08-06T06:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>$x+y=1$</p>
+        <script type="math/tex; mode=display">x+y=\frac{2}{3}</script><a id="more"></a>
+<p>想把喜欢听的歌放到博客里来,怎么办呢?</p>
+<p>如图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/20200806104611286.png" width=20%></p>
+<p>$\color{Red}Ⅰ.修改主题(我这里是yilia)的相关文件$</p>
+<p>按照下面的路径打开这个文件</p>
+<p><code>themes-&gt;yilia-&gt;layout-&gt;_partial-&gt;left-col.eij</code></p>
+<p>你需要在<code>&lt;nav class=&quot;header-nav&quot;&gt;</code>添加以下代码</p>
+<p>(其中iframe是决定音乐的,下面会讲)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.music &amp;&amp; theme.music.enable)&#123; %&gt;</span><br><span class="line">    &lt;div style&#x3D;&quot;position:absolute; bottom:120px left:auto; width:85%&quot;&gt;</span><br><span class="line">        &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;263 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;1397317478&amp;auto&#x3D;0&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200806105118792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2p6aXdqeGpk,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>$上面是添加的ghost这首歌,想添加自己的歌怎么办?$</p>
+<p>$打开网易云,打开你喜欢的歌,点击生成外链$</p>
+<p><img src="https://img-blog.csdnimg.cn/20200806105312215.png" width=70%></p>
+<p>然后复制下这个代码</p>
+<p><img src="https://img-blog.csdnimg.cn/20200806105417348.png" alt="在这里插入图片描述"></p>
+<p>$看到这里是一对iframe标签嵌套的,把这个替换掉前面的iframe就行$</p>
+<p><br/></p>
+<p>$\color{Red}Ⅱ.修改主题目录下(我的主题是yilia)的配置文件_config.yml$</p>
+<p>在末尾添加几句代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 网易云音乐插件</span><br><span class="line">music:</span><br><span class="line">  enable: true</span><br><span class="line">  #id: 1332647902  # 网易云分享的ID</span><br><span class="line">  autoplay: true  # 是否开启自动播放</span><br></pre></td></tr></table></figure>
+<p>$\color{Red}Ⅲ.大功告成,检验一下$</p>
+<p>$在blog的根目录中右键打开git\ bash$</p>
+<p><code>hexo g</code>(提交)</p>
+<p><code>hexo s</code>(本地检查)</p>
+<p>然后你可以在本地查看了</p>
+<p><code>hexo d</code>(部署到github上)</p>
+<p>然后你可以用你的域名访问到了</p>
+<p><strong>值得一提的是,如果你对音乐播放器的尺寸或位置不满意</strong></p>
+<p>都是可以调节的</p>
+<p>初始加的代码中的width之类的属性可以自己调节</p>
 
       
 
@@ -214,6 +250,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -264,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://issue-K.github.io/om/2020/08/06/%E6%B5%8B%E8%AF%95latex%E7%9A%84/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://issue-K.github.io/om/2020/08/06/Hexo%E5%B7%A6%E4%BE%A7%E6%98%BE%E7%A4%BA%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%A0%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,15 +324,6 @@
 
   
 <nav id="article-nav">
-  
-    <a href="/2020/08/06/latex-test2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          latex test2
-        
-      </div>
-    </a>
   
   
     <a href="/2020/08/06/issue%E7%9A%84%E5%8D%9A%E5%AE%A2hh/" id="article-nav-older" class="article-nav-link-wrap">
@@ -449,7 +487,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo配置</a>
               </li>
             
             <div class="clearfix"></div>
